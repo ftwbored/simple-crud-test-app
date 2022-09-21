@@ -2,10 +2,34 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <form action="/menu/new" method="POST">
+      <p>
+        <input type="text" name="menuName" id="menuName" placeholder="Name" />
+      </p>
+      <p>
+        <input
+          type="text"
+          name="menuIcon"
+          id="menuIcon"
+          placeholder="Icon URL [http]"
+        />
+      </p>
+      <p>
+        <input
+          type="text"
+          name="menuUrl"
+          id="menuUrl"
+          placeholder="Menu URL [http]"
+        />
+      </p>
+      <p><button type="submit">Save</button></p>
+    </form>
+
+    <% if (data != null) {data.forEach(item=>{%>
+    <img src="<%= item.icon %>" /> <%= item.name %><%= item.menuUrl %> <%});} %>
   </body>
 </html>
